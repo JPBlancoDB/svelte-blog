@@ -30,13 +30,6 @@
     padding: 2px 8px;
     margin-right: 10px;
   }
-
-  @media (max-width: 640px) {
-    .tag {
-      margin-right: 5px;
-      font-size: 0.6rem;
-    }
-  }
   .article-engagement {
     margin-right: 20px;
   }
@@ -45,8 +38,11 @@
     min-width: 26px;
     vertical-align: -5px;
   }
-  .flex-container {
-    display: flex;
+  @media (max-width: 640px) {
+    .tag {
+      margin-right: 5px;
+      font-size: 0.6rem;
+    }
   }
 </style>
 
