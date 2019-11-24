@@ -4,10 +4,8 @@
   let articles = [];
 
   onMount(async () => {
-    const res = await this.fetch(
-      `https://dev.to/api/articles?username=jpblancodb`
-    );
-    articles = res.json();
+    const res = await fetch(`https://dev.to/api/articles?username=jpblancodb`);
+    articles = await res.json();
   });
 </script>
 
