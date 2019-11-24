@@ -1,15 +1,13 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "svelte-blog",
+  "description": "A blog made with sveltejs and dev.to api",
   "version": "0.0.1",
+  "author": "@jpblancodb",
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build",
     "export": "sapper export",
-    "start": "node __sapper__/build",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open",
-    "test": "run-p --race dev cy:run"
+    "start": "node __sapper__/build"
   },
   "dependencies": {
     "compression": "^1.7.1",
