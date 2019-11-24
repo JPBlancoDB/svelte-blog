@@ -1,3 +1,15 @@
+<style>
+  figure {
+    text-align: center;
+    margin: 0 auto;
+  }
+  img {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 0 1em 0;
+  }
+</style>
+
 <figure>
   <img alt="Borat" src="great-success.png" />
   <figcaption>Loading...</figcaption>
