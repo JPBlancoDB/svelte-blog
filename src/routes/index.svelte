@@ -8,7 +8,7 @@
 </script>
 
 <script>
-  export let articles = [];
+  export let articles;
 </script>
 
 <style>
