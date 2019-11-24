@@ -1,3 +1,14 @@
+<script>
+  import { onMount } from "svelte";
+
+  let articles = [];
+
+  onMount(async () => {
+    const res = await fetch(`https://dev.to/api/articles?username=jpblancodb`);
+    articles = await res.json();
+  });
+</script>
+
 <style>
   a {
     text-decoration: none;
@@ -37,35 +48,36 @@
   }
 </style>
 
-<a href="/">
-  <div class="card">
-    Nov 24
-    <h1>Create a blog with Svelte and DEV.to API</h1>
+{#each articles as article}
+  <a href={article.canonical_url}>
+    <div class="card">
+      {article.readable_publish_date}
+      <h1>{article.title}</h1>
 
-    <div class="tags">
-      <span class="tag">#svelte</span>
-      <span class="tag">#javascript</span>
-      <span class="tag">#tutorial</span>
-      <span class="tag">#blog</span>
-    </div>
-
-    <p>How to create a blog using dev.to API and svelte</p>
-
-    <div class="flex-container">
-      <div class="article-engagement">
-        <img
-          alt="Reactions"
-          src="https://practicaldev-herokuapp-com.freetls.fastly.net/assets/reactions-stack-ee166e138ca182a567f74c986b6f810f670f4d199aca9c550cc7e6f49f34bd33.png" />
-        <span>10</span>
+      <div class="tags">
+        {#each article.tag_list as tag}
+          <span class="tag">#{tag}</span>
+        {/each}
       </div>
 
-      <div class="article-engagement">
-        <img
-          alt="Comments"
-          src="https://practicaldev-herokuapp-com.freetls.fastly.net/assets/comments-bubble-9958d41b969a1620c614347d5ad3f270ab49582c1d9f82b617a6b4156d05dda0.png" />
-        <span>3</span>
-      </div>
+      <p>{article.description}</p>
 
+      <div class="flex-container">
+        <div class="article-engagement">
+          <img
+            alt="Reactions"
+            src="https://practicaldev-herokuapp-com.freetls.fastly.net/assets/reactions-stack-ee166e138ca182a567f74c986b6f810f670f4d199aca9c550cc7e6f49f34bd33.png" />
+          <span>{article.positive_reactions_count}</span>
+        </div>
+
+        <div class="article-engagement">
+          <img
+            alt="Comments"
+            src="https://practicaldev-herokuapp-com.freetls.fastly.net/assets/comments-bubble-9958d41b969a1620c614347d5ad3f270ab49582c1d9f82b617a6b4156d05dda0.png" />
+          <span>{article.comments_count}</span>
+        </div>
+
+      </div>
     </div>
-  </div>
-</a>
+  </a>
+{/each}
