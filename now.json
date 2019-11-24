@@ -1,0 +1,5 @@
+{
+  "version": 2,
+  "name": "jpblanco.dev",
+  "builds": [{ "src": "package.json", "use": "now-sapper" }]
+}
