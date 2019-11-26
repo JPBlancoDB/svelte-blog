@@ -1,12 +1,14 @@
-<script>
-  import { onMount } from "svelte";
-  import Loading from "../components/Loading.svelte";
-  let articles = [];
+<script context="module">
+  export async function preload() {
+    const res = await this.fetch(
+      `https://dev.to/api/articles?username=jpblancodb`
+    );
+    return { articles: await res.json() };
+  }
+</script>
 
-  onMount(async () => {
-    const res = await fetch(`https://dev.to/api/articles?username=jpblancodb`);
-    articles = await res.json();
-  });
+<script>
+  export let articles;
 </script>
 
 <style>
